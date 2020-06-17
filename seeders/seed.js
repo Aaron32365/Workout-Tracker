@@ -135,5 +135,3 @@ db.Workout.deleteMany({})
     process.exit(1);
   });
 
-
-  //added document to collection inside of database when on add exercise page

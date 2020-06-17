@@ -1,11 +1,18 @@
 const mongoose = require("mongoose")
-const schema = mongoose.schema
+const Schema = mongoose.Schema
 
-const WorkoutSchema = new schema({
-    exercises: [{
-        type: schema.Types.objectId,
+const WorkoutSchema = new Schema({
+    day: {
+        type: Date,
+        default: Date.now
+      },
+      totalDuration: {
+        type: Number,
+        default: 0
+      },
+      exercises: [{
+        type: Schema.Types.ObjectId,
         ref: "Exercise"
-
     }]
 })
 

@@ -3,7 +3,6 @@ const API = {
     let res;
     try {
       res = await fetch("/api/workouts");
-      console.log( "grabbing all workouts: " + res)
     } catch (err) {
       console.log(err)
     }
@@ -12,12 +11,13 @@ const API = {
     return json[json.length - 1];
   },
   async addExercise(data) {
+    console.log("Data to be sent to backend: " + JSON.stringify(data))
     const id = location.search.split("=")[1];
     console.log("front end id: " + id)
     const res = await fetch("/api/workouts/" + id, { 
       method: "put",
       headers: { "Content-Type": "application/json" },
-      body: data
+      body: JSON.stringify(data)
     });
 
     const json = await res.json();
